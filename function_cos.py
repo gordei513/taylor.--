@@ -1,5 +1,7 @@
 import math
 import cmath
+import matplotlib.pyplot as plt
+import numpy as np
 
 ITERATIONS = 20
 
@@ -24,7 +26,7 @@ print(help(my_cos), my_cos(1.2))
 
 
 
-
+#проверка библиотечной и этой функции, когда они достигают не нормальных для себя значений
 complex_angle = cmath.acos(5)
 print('"Угол", при котором косинус равен 4:', complex_angle)
 
@@ -36,13 +38,12 @@ print("Косинус такого угла через библиотечную:
 
 
 
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 vs = np.vectorize(my_cos)
-print(my_cos, vs)
+
 
 angles = np.r_[-17.25:17.25:0.01]
 plt.plot(angles, np.cos(angles))
 plt.plot(angles, vs(angles))
-plt.show()
+plt.show() #рисуем график той и другой функции и понимаем что где то в 16-17 возникают расхождения
