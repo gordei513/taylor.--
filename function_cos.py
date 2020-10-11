@@ -1,5 +1,5 @@
 import math
-
+import cmath
 
 ITERATIONS = 20
 
@@ -23,13 +23,26 @@ print(help(my_cos), my_cos(1.2))
 
 
 
-import math
-import cmath
+
 
 complex_angle = cmath.acos(5)
 print('"Угол", при котором косинус равен 4:', complex_angle)
 
 print("Косинус такого угла через эту функцию: ", my_cos(complex_angle))
-print("Косинус такого угла через библиотечную: ", cmath.cos(complex_angle))
+print("Косинус такого угла через библиотечную: ", cmath.cos(complex_angle)) #и та и другая справились с этой задачей
 
 
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+vs = np.vectorize(my_cos)
+print(my_cos, vs)
+
+angles = np.r_[-17.25:17.25:0.01]
+plt.plot(angles, np.cos(angles))
+plt.plot(angles, vs(angles))
+plt.show()
